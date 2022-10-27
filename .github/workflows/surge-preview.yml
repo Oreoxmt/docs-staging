@@ -1,0 +1,42 @@
+name: 🔂 Surge PR Preview
+
+on:
+  push:
+    branches: ["main"]
+    paths-ignore:
+      - ".github/**"
+  pull_request:
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Docs Website Code
+        uses: actions/checkout@v3
+        with:
+          repository: "pingcap/website-docs"
+          ref: "master"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+      - name: Remove origin docs
+        run: |
+          sudo rm -fr docs
+
+      - name: Clone This Repo
+        uses: actions/checkout@v3
+        with:
+          path: "docs"
+
+      - uses: afc163/surge-preview@v1
+        id: preview_step
+        with:
+          surge_token: ${{ secrets.SURGE_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          dist: public
+          build: |
+            yarn
+            yarn build
+      - name: Get the preview_url
+        run: echo "url => ${{ steps.preview_step.outputs.preview_url }}"
