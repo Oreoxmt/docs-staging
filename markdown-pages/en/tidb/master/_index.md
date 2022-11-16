@@ -41,7 +41,7 @@ hide_commit: true
 
 [Software and Hardware Requirements](https://docs.pingcap.com/tidb/dev/hardware-and-software-requirements)
 
-[Deploy a TiDB Cluster Using TiUP (Recommended)](https://docs.pingcap.com/tidb/dev/production-deployment-using-tiup)
+[Deploy a TiDB Cluster Using TiUP](https://docs.pingcap.com/tidb/dev/production-deployment-using-tiup)
 
 [Deploy a TiDB Cluster in Kubernetes](https://docs.pingcap.com/tidb/dev/tidb-in-kubernetes)
 
@@ -117,7 +117,17 @@ hide_commit: true
 
 [TiDB Operator](https://docs.pingcap.com/tidb/dev/tidb-operator-overview)
 
-[TiSpark](https://docs.pingcap.com/tidb/dev/tispark-overview) 
+[TiSpark](https://docs.pingcap.com/tidb/dev/tispark-overview)
+
+</LearningPath>
+
+<LearningPath label="Reference" icon="cloud-dev">
+
+[System Variables](https://docs.pingcap.com/tidb/dev/system-variables)
+
+[Release Notes](https://docs.pingcap.com/tidb/dev/release-notes)
+
+[FAQ Summary](https://docs.pingcap.com/tidb/dev/faq-overview)
 
 </LearningPath>
 
