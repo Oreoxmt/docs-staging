@@ -1,0 +1,27 @@
+name: Mixed inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo:
+        type: choice
+        description: Which repo to get the PR from
+        required: true
+        default: 'pingcap/docs'
+        options:
+        - pingcap/docs
+        - pingcap/docs-cn
+      pr_number:
+        required: true
+        description: Which PR to preview
+        type: string
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test with inputs
+        run: |
+          echo "Hello ${{ github.event.inputs.repo }} and ${{ github.event.inputs.pr_number }}!"
